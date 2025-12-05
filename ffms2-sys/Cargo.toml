@@ -1,5 +1,5 @@
 [package]
-name = "ffms2"
+name = "ffms2-sys"
 version = "0.3.0"
 authors = ["Luni-4 <luni-4@hotmail.it>"]
 description = "FFI bindings to ffms2"
@@ -7,14 +7,12 @@ repository = "https://github.com/rust-av/ffms2-rs"
 edition = "2021"
 license = "MIT"
 
-[dependencies]
-ffms2-sys = { path = "./ffms2-sys"}
-cfg-if = "1.0.4"
-paste = "1.0.15"
-ffmpeg-the-third = "4.0.1"
+[features]
+static = []
 
-[dev-dependencies]
-structopt = "0.3.26"
+[build-dependencies]
+bindgen = "0.72.1"
+metadeps = "1.1.2"
 
-[workspace]
-members = ["ffms2-sys"]
+[package.metadata.pkg-config]
+ffms2 = "2.40"
